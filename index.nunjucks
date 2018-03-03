@@ -188,6 +188,18 @@
   <body data-spy="scroll" data-target="#sidebar">
     <div class="container">
       <div class="row">
+      
+        <div class="col-md-3">
+          <div id="sidebar" class="hidden-print affix" role="complementary">
+            <ul class="nav nav-pills nav-stacked">
+              {% for resource in resources %}
+                <li><a href="#{{ resource.uniqueId}}">{% if resource.displayName %}{{ resource.displayName }}{% else %}{{ resource.relativeUri }}{% endif %}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        
+        
         <div class="col-md-9" role="main">
           <div class="page-header">
             <h1>{{ title }} API documentation{% if version %} <small>version {{ version }}</small>{% endif %}</h1>
@@ -236,15 +248,6 @@
           {% endfor %}
         </div>
 
-        <div class="col-md-3">
-          <div id="sidebar" class="hidden-print affix" role="complementary">
-            <ul class="nav nav-pills nav-stacked">
-              {% for resource in resources %}
-                <li><a href="#{{ resource.uniqueId}}">{% if resource.displayName %}{{ resource.displayName }}{% else %}{{ resource.relativeUri }}{% endif %}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   </body>
